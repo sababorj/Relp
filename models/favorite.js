@@ -1,8 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
-    var Favorate = sequelize.define("Favs", {
+    var Favorite = sequelize.define("Favorite", {
         name: DataTypes.STRING,
         image_url: DataTypes.TEXT,
         page_url: DataTypes.STRING
     });
-    return Favorate;
+    return Favorite;
 };
