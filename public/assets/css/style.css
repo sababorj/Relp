@@ -1,0 +1,22 @@
+.col-md-6 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.background-img {
+    height: 200px;
+    background-size: cover;
+    border-radius: 4px;
+}
+
+.background-img p {
+    padding-top: 70px;
+    text-shadow: 2px 1px #353535a3;
+    font-size: 26px;
+    color: #fff;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}

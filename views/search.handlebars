@@ -1,31 +1,33 @@
-    <div class="container">
-        <div class="row">
-    <div class="col-md-12">
-        <h1>Welcome to Restaurant App!</h1>
-        <p>Search for your restaurant in your area</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Welcome to Restaurant App!</h1>
+            <p>Search for your restaurant in your area</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form method="POST" action="/search" class="form-inline">
+                <input type="input" placeholder="search by location" name="location" id="location" class="form-control mb-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-success mb-2 col-md-2" />
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        {{#each result}}
+        <div class="col-md-6">
+            <a href="{{this.page_url}}" target="_blank">
+                <div style="background-image: url('{{this.image_url}}');" class="background-img">
+                    <p>{{this.name}}</p>
+                    <form method="POST" action="/api/favorite">
+                        <input type="hidden" name="name" value="{{this.name}}" />
+                        <input type="hidden" name="image" value="{{this.image_url}}" />
+                        <input type="hidden" name="url" value="{{this.page_url}}" />
+                        <input type="submit" value="Favorite" class="btn btn-success" />
+                    </form>
+                </div>
+            </a>
+        </div>
+        {{/each}}
     </div>
 </div>
-<div class="row">
-    <div class="col-md-12">
-        <form method="POST" action="/search" class="form-inline">
-            <input type="input" placeholder="search by location" name="location" id="location" class="form-control mb-2 col-md-10">
-            <input type="submit" value="Submit" class="btn btn-success mb-2 col-md-2" />
-        </form>
-    </div>
-</div>
-<div class="row">
-{{#each result}}
- <div class="col-md-6">
-        <a href="{{this.page_url}}" target="_blank">
-            <div style="background-image: url('https://s3-media4.fl.yelpcdn.com/bphoto/9T16GhR9NcuBd_M1KXzzFA/o.jpg');" class="background-img">
-                <p>Snooze</p>
-                <form method="POST" action="/api/favorite">
-                    <input type="hidden" name="name" value="Snooze" />
-                    <input type="hidden" name="image" value="https://s3-media4.fl.yelpcdn.com/bphoto/9T16GhR9NcuBd_M1KXzzFA/o.jpg" />
-                    <input type="hidden" name="url" value="https://www.yelp.com/biz/snooze-san-diego-18?adjust_creative&#x3D;lkFyQREyKo4KEIy-BhjoPA&amp;utm_campaign&#x3D;yelp_api_v3&amp;utm_medium&#x3D;api_v3_business_search&amp;utm_source&#x3D;lkFyQREyKo4KEIy-BhjoPA" />
-                    <input type="submit" value="Favorite" class="btn btn-success" />
-                </form>
-            </div>
-        </a>
-    </div>
-{{/each}}
