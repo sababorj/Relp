@@ -19,7 +19,7 @@ var router = require('./routes/route');
 app.use(router)
 
 // db is in sync and app is listening to our port
-db.sequelize.sync({force: true}).then( ()=>{
+db.sequelize.sync({force: false}).then( ()=>{
     app.listen(port, ()=> {
         console.log(`app is listening on port ${port}`)
     })

@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Favorite Restaurants</h2>
+    <div class="row">
+        {{#each Favdata}}
+        <div class="col-md-6">
+            <a href="{{this.page_url}}" target="_blank">
+                <div style="background-image: url('{{this.image_url}}');" class="background-img">
+                    <p>{{name}}</p>
+                </div>
+            </a>
+        </div>
+        {{/each}}
+    </div>
+</div>
